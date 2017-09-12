@@ -1,0 +1,21 @@
+{
+    "name": "gregorj/bofhstyleexcuses",
+    "description": "Read and return a random BOFH style excuse from a given URL.",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    },
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "GregorJ\\BOFHStyleExcuses\\": "src/"
+        }
+    },
+    "bin": [
+        "bin/excuse"
+    ]
+}
