@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+<?php
+/**
+ * bin/excuse
+
+ * Standalone simple excuse generator for CLI.
+ *
+ * PHP version 5
+ *
+ * @category application
+ * @package BOFH
+ * @author GregorJ
+ * @license https://opensource.org/licenses/MIT MIT
+ * @link https://github.com/gregor-j/bofh-style-excuses
+ */
+
+//In this case we don't need any autoloading capabilities.
+require_once __DIR__ . '/../src/Excuses.php';
+
+//Create a new excuses object using Jeff Ballard's list of excuses.
+$excuses = new GregorJ\BOFHStyleExcuses\Excuses();
+
+//Simple CLI output followed by a line break.
+printf("Your excuse of the day: %s%s", $excuses->get(), PHP_EOL);
