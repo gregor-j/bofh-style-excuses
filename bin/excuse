@@ -14,11 +14,24 @@
  * @link https://github.com/gregor-j/bofh-style-excuses
  */
 
+//determine whether there was a CLI argument
+if (!empty($argv[1])) {
+    $url = filter_var($argv[1], FILTER_SANITIZE_URL);
+} else {
+    $url = null;
+}
+
 //In this case we don't need any autoloading capabilities.
 require_once __DIR__ . '/../src/Excuses.php';
 
-//Create a new excuses object using Jeff Ballard's list of excuses.
-$excuses = new GregorJ\BOFHStyleExcuses\Excuses();
+//Create a new excuses object using either the given url or
+//Jeff Ballard's list of excuses.
+try {
+    $excuses = new GregorJ\BOFHStyleExcuses\Excuses($url);
+} catch (Exception $e) {
+    printf("ERROR: %s", $e->getMessage());
+    exit(1);
+}
 
 //Simple CLI output followed by a line break.
 printf("Your excuse of the day: %s%s", $excuses->get(), PHP_EOL);
