@@ -74,7 +74,7 @@ class Excuses
      */
     public function __construct($url = null)
     {
-        if (!is_null($url)) {
+        if (!empty($url)) {
             $this->setUrl($url);
         } else {
             //fallback
