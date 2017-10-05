@@ -13,7 +13,6 @@
  * @license https://opensource.org/licenses/MIT MIT
  * @link https://github.com/gregor-j/bofh-style-excuses
  */
-
 //determine whether there was a CLI argument
 if (!empty($argv[1])) {
     $url = filter_var($argv[1], FILTER_SANITIZE_URL);
@@ -22,7 +21,7 @@ if (!empty($argv[1])) {
 }
 
 //In this case we don't need any autoloading capabilities.
-require_once __DIR__ . '/../src/Excuses.php';
+require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'Excuses.php';
 
 //Create a new excuses object using either the given url or
 //Jeff Ballard's list of excuses.
